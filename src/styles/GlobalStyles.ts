@@ -8,11 +8,16 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     background-color: ${({ theme }) => theme.anatomy.colors.background};
     color: ${({ theme }) => theme.anatomy.colors.text};
 
     font-family: ${({ theme }) => theme.typography.fontFamily};
+    font-size: ${({ theme }) => theme.typography.sizes.md};
 
     min-height: 100vh;
   }

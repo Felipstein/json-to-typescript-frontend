@@ -1,9 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Logo } from './components/Logo';
+import { Logo } from '../Logo';
 
-import GlobalStyles from './styles/GlobalStyles';
-import _dark from './styles/themes/dark';
+import GlobalStyles from '../../styles/GlobalStyles';
+import _dark from '../../styles/themes/dark';
 
 export const App: React.FC = () => {
 
