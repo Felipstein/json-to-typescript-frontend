@@ -9,9 +9,12 @@ export default createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
+    background-color: ${({ theme }) => theme.anatomy.colors.background};
+    color: ${({ theme }) => theme.anatomy.colors.text};
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${({ theme }) => theme.typography.fontFamily};
+
+    min-height: 100vh;
   }
 
 `;
