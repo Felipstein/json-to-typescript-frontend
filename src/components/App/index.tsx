@@ -18,6 +18,7 @@ import GlobalStyles from '../../styles/GlobalStyles';
 import _dark from '../../styles/themes/dark';
 
 import * as S from './styles';
+import { WarnIcon } from '../../icons/WarnIcon';
 
 export const App: React.FC = () => {
   const {
@@ -54,6 +55,13 @@ export const App: React.FC = () => {
             <PlayIcon />
             RUN
           </Button>
+
+          {errorFeedback && (
+            <S.ErrorFeedback>
+              <WarnIcon />
+              {errorFeedback}
+            </S.ErrorFeedback>
+          )}
 
           <div className="codes-block">
             <CodeBlock

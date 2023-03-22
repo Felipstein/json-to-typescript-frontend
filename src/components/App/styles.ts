@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Text } from '../Text';
 
 export const Layout = styled.div`
   display: flex;
@@ -39,6 +40,16 @@ export const MainContainer = styled.main`
       flex: 1;
     }
   }
+`;
+
+export const ErrorFeedback = styled(Text)`
+  margin: 1.6rem 0 0.4rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: ${({ theme }) => theme.colors.red[400]};
 `;
 
 export const Footer = styled.footer`

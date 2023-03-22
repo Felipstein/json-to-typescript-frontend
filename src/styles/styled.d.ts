@@ -34,6 +34,10 @@ declare module 'styled-components' {
         400: string;
       };
 
+      red: {
+        400: string;
+      }
+
       green: {
         500: string;
         600: string;
