@@ -1,16 +1,22 @@
 import { useState } from 'react';
 
-export function useTranspileCode(initialCode?: string) {
-  const [code, setCode] = useState<string | null>(initialCode ?? null);
-  const [transpiledCode, setTranspiledCode] = useState<string | null>(null);
+export function useTranspileCode() {
+  const [isTranspiling, setIsTranspiling] = useState(false);
+  const [codeTranspiled, setCodeTranspiled] = useState<string | null>(null);
 
-  async function transpileCode() {
+  async function transpileCode(code: string) {
+    try {
+      setIsTranspiling(true);
 
+      setCodeTranspiled(`${code}\noii\ntest`);
+    } finally {
+      setIsTranspiling(false);
+    }
   }
 
   return {
-    originalCode: code,
-    useTranspileCode: transpiledCode,
+    isTranspiling,
+    codeTranspiled,
     transpileCode,
   };
 }
