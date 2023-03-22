@@ -9,6 +9,9 @@ import _dark from '../../styles/themes/dark';
 
 import * as S from './styles';
 import { LinkButton } from '../LinkButton';
+import { IconButton } from '../IconButton';
+import { GitHubIcon } from '../../icons/GitHubIcon';
+import { FigmaIcon } from '../../icons/FigmaIcon';
 
 export const App: React.FC = () => {
 
@@ -35,12 +38,25 @@ export const App: React.FC = () => {
           </div>
 
           <div className="block-footer">
-            <Text>
-              Icon 1
-            </Text>
-            <Text>
-              Icon 2
-            </Text>
+            <IconButton
+              label='api'
+              to='https://github.com/Felipstein/json-to-typescript-backend'
+            >
+              <GitHubIcon />
+            </IconButton>
+
+            <IconButton
+              label='web'
+              to='https://github.com/Felipstein/json-to-typescript-frontend'
+            >
+              <GitHubIcon />
+            </IconButton>
+
+            <IconButton
+              to='https://www.figma.com/file/VrUik3Hs2nYwjnZFcpdoMD/JSON-Transpiler?node-id=2%3A2&t=1bg9jP4NyNF5lr0Z-1'
+            >
+              <FigmaIcon />
+            </IconButton>
           </div>
         </S.Footer>
       </S.Layout>

@@ -34,10 +34,17 @@ export const Footer = styled.footer`
   .block-footer {
     width: 30rem;
 
+    display: flex;
+    align-items: flex-end;
+
+    gap: 0.8rem;
+
     &.by {
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      gap: 0.4rem;
     }
   }
 `;
