@@ -18,8 +18,6 @@ export default createGlobalStyle`
 
     font-family: ${({ theme }) => theme.typography.fontFamily};
     font-size: ${({ theme }) => theme.typography.sizes.md};
-
-    min-height: 100vh;
   }
 
 `;
