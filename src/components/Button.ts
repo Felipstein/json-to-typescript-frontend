@@ -16,6 +16,7 @@ export const Button = styled.button`
   font-weight: 700;
 
   cursor: pointer;
+  user-select: none;
 
   ${({ theme }) => css`
 
@@ -35,6 +36,16 @@ export const Button = styled.button`
     &:active {
       color: ${theme.anatomy.colors.button.actived.text};
       background-color: ${theme.anatomy.colors.button.actived.background};
+    }
+
+    &:disabled {
+      background-color: ${theme.colors.gray[700]};
+      color: ${theme.colors.gray[500]};
+
+      opacity: 0.5;
+
+      pointer-events: none;
+      cursor: default;
     }
 
   `};

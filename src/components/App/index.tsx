@@ -28,7 +28,7 @@ export const App: React.FC = () => {
             Transforme seu JSON em uma interface TypeScript com facilidade e rapidez!
           </Text>
 
-          <Button id='btn-run'>
+          <Button id='btn-run' disabled>
             <PlayIcon />
             RUN
           </Button>
