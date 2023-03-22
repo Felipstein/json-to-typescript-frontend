@@ -1,3 +1,5 @@
 export interface CodeBlockProps {
-  children: string | string[];
+  isEditable?: boolean;
+  onChange?: (value: string, event?: unknown) => void;
+  children: string;
 }

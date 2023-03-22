@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { Logo } from '../Logo';
@@ -18,6 +18,7 @@ import _dark from '../../styles/themes/dark';
 import * as S from './styles';
 
 export const App: React.FC = () => {
+  const [code, setCode] = useState('');
 
   return (
     <ThemeProvider theme={_dark}>
@@ -36,18 +37,18 @@ export const App: React.FC = () => {
           </Button>
 
           <div className="codes-block">
-            <CodeBlock>
-              daodkwaod
-              daodkwaod
-              daodkwaod
-              daodkwaod
+            <CodeBlock isEditable>
+              {code}
             </CodeBlock>
 
             <CodeBlock>
-              daodkwaod
-              daodkwaod
-              daodkwaod
-              daodkwaod
+              {`
+interface MyJSON {
+  name: string;
+  addresses: any[];
+  age: number;
+}
+              `}
             </CodeBlock>
           </div>
 

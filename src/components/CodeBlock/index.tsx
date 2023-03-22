@@ -1,13 +1,25 @@
 import React from 'react';
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { CodeBlockProps } from './types';
+import * as S from './styles';
 
-export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
+export const CodeBlock: React.FC<CodeBlockProps> = ({ isEditable = false, onChange, children }) => {
+  if(isEditable) {
+    return (
+      <S.EditableSyntaxHightlighter
+        mode='json'
+        value={children}
+        onChange={onChange}
+        placeholder='Cole seu código JSON aqui...'
+      />
+    );
+  }
 
   return (
-    <SyntaxHighlighter>
+    <S.SyntaxHightlighter
+      language='typescript'
+    >
       {children}
-    </SyntaxHighlighter>
+    </S.SyntaxHightlighter>
   );
 };
