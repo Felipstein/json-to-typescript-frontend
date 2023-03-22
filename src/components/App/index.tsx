@@ -3,17 +3,18 @@ import { ThemeProvider } from 'styled-components';
 
 import { Logo } from '../Logo';
 import { Text } from '../Text';
+import { LinkButton } from '../LinkButton';
+import { IconButton } from '../IconButton';
+import { Button } from '../Button';
+
+import { GitHubIcon } from '../../icons/GitHubIcon';
+import { FigmaIcon } from '../../icons/FigmaIcon';
+import { PlayIcon } from '../../icons/PlayIcon';
 
 import GlobalStyles from '../../styles/GlobalStyles';
 import _dark from '../../styles/themes/dark';
 
 import * as S from './styles';
-import { LinkButton } from '../LinkButton';
-import { IconButton } from '../IconButton';
-import { GitHubIcon } from '../../icons/GitHubIcon';
-import { FigmaIcon } from '../../icons/FigmaIcon';
-import { Button } from '../Button';
-import { PlayIcon } from '../../icons/PlayIcon';
 
 export const App: React.FC = () => {
 
