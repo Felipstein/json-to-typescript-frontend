@@ -8,6 +8,8 @@ import { IconButton } from '../IconButton';
 import { Button } from '../Button';
 import { CodeBlock } from '../CodeBlock';
 
+import { useTranspileCode } from '../../hooks/useTranspileCode';
+
 import { GitHubIcon } from '../../icons/GitHubIcon';
 import { FigmaIcon } from '../../icons/FigmaIcon';
 import { PlayIcon } from '../../icons/PlayIcon';
@@ -18,8 +20,19 @@ import _dark from '../../styles/themes/dark';
 import * as S from './styles';
 
 export const App: React.FC = () => {
+  const {
+    isTranspiling,
+    transpileCode,
+  } = useTranspileCode();
+
   const [code, setCode] = useState('');
   const [codeTranspiled, setCodeTranspiled] = useState('');
+
+  async function handleTranspileCode() {
+    const transpiled = await transpileCode(code);
+
+    setCodeTranspiled(transpiled);
+  }
 
   return (
     <ThemeProvider theme={_dark}>
@@ -32,7 +45,11 @@ export const App: React.FC = () => {
             Transforme seu JSON em uma interface TypeScript com facilidade e rapidez!
           </Text>
 
-          <Button id='btn-run' disabled>
+          <Button
+            id='btn-run'
+            type='button'
+            onClick={handleTranspileCode}
+          >
             <PlayIcon />
             RUN
           </Button>
