@@ -19,9 +19,20 @@ export class APIService {
 
       return `${code}\ntest`;
     } catch (err: AxiosError | Error | unknown) {
-      console.log(err);
 
-      throw new APIError(err as string, 500);
+      if(err instanceof AxiosError) {
+        if(err.code === 'ERR_NETWORK') {
+          throw new APIError('Nossos servidores estão fora no momento, por favor, tente novamente mais tarde.', 503);
+        }
+
+        if(err.response) {
+          throw new APIError(err.response.data.message, err.response.status);
+        }
+
+        throw new APIError('Houve um problema interno no servidor, por favor, tente novamente mais tarde.', 500);
+      }
+
+      throw new APIError('Houve um problema interno no cliente, por favor, tente novamente.', -1);
     }
   }
 

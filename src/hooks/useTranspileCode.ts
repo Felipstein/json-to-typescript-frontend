@@ -13,18 +13,12 @@ export function useTranspileCode() {
       const transpiledCode = await api.transpileCode(code);
 
       return transpiledCode;
-    } catch (err: APIError | unknown) {
+    } catch (err: APIError | any) {
 
       if(err instanceof APIError) {
-
-        if(err.statusCode === -1) {
-          setErrorFeedback('Houve um problema interno do cliente, por favor, tente novamente.');
-        } else {
-          setErrorFeedback(err.message);
-        }
-
+        setErrorFeedback(err.message);
       } else {
-        setErrorFeedback('Houve um problema interno do cliente, por favor, tente novamente.');
+        setErrorFeedback(err.message || 'Houve um problema interno do cliente, por favor, tente novamente.');
       }
 
     } finally {
