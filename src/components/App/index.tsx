@@ -19,6 +19,7 @@ import * as S from './styles';
 
 export const App: React.FC = () => {
   const [code, setCode] = useState('');
+  const [codeTranspiled, setCodeTranspiled] = useState('');
 
   return (
     <ThemeProvider theme={_dark}>
@@ -45,13 +46,7 @@ export const App: React.FC = () => {
             </CodeBlock>
 
             <CodeBlock>
-              {`
-interface MyJSON {
-  name: string;
-  addresses: any[];
-  age: number;
-}
-              `}
+              {codeTranspiled}
             </CodeBlock>
           </div>
 
