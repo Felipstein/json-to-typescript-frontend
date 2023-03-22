@@ -37,7 +37,10 @@ export const App: React.FC = () => {
           </Button>
 
           <div className="codes-block">
-            <CodeBlock isEditable>
+            <CodeBlock
+              isEditable
+              onChange={setCode}
+            >
               {code}
             </CodeBlock>
 
