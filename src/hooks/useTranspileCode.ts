@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { api } from '../services/api.service';
 
 export function useTranspileCode() {
   const [isTranspiling, setIsTranspiling] = useState(false);
@@ -7,7 +8,9 @@ export function useTranspileCode() {
     try {
       setIsTranspiling(true);
 
-      return `${code}\noii\ntest`;
+      const transpiledCode = await api.transpileCode(code);
+
+      return transpiledCode;
     } finally {
       setIsTranspiling(false);
     }
