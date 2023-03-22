@@ -12,6 +12,8 @@ import { LinkButton } from '../LinkButton';
 import { IconButton } from '../IconButton';
 import { GitHubIcon } from '../../icons/GitHubIcon';
 import { FigmaIcon } from '../../icons/FigmaIcon';
+import { Button } from '../Button';
+import { PlayIcon } from '../../icons/PlayIcon';
 
 export const App: React.FC = () => {
 
@@ -25,6 +27,11 @@ export const App: React.FC = () => {
           <Text id='sub-title'>
             Transforme seu JSON em uma interface TypeScript com facilidade e rapidez!
           </Text>
+
+          <Button id='btn-run'>
+            <PlayIcon />
+            RUN
+          </Button>
 
         </S.MainContainer>
 

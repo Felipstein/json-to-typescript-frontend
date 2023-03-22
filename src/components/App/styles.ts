@@ -21,6 +21,10 @@ export const MainContainer = styled.main`
   #sub-title {
     margin-top: 3.2rem;
   }
+
+  #btn-run {
+    margin-top: 2.4rem;
+  }
 `;
 
 export const Footer = styled.footer`
