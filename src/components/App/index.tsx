@@ -22,6 +22,7 @@ import * as S from './styles';
 export const App: React.FC = () => {
   const {
     isTranspiling,
+    errorFeedback,
     transpileCode,
   } = useTranspileCode();
 
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
   async function handleTranspileCode() {
     const transpiled = await transpileCode(code);
 
-    setCodeTranspiled(transpiled);
+    setCodeTranspiled(transpiled ?? '');
   }
 
   return (

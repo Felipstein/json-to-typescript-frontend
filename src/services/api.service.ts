@@ -1,4 +1,5 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
+import { APIError } from '../errors/APIError';
 
 export class APIService {
 
@@ -11,11 +12,17 @@ export class APIService {
   }
 
   async transpileCode(code: string): Promise<string> {
-    const response = await this.api.post('/transpile', { json: code });
+    try {
+      const response = await this.api.post('/transpile', { json: code });
 
-    console.log(response);
+      console.log(response);
 
-    return `${code}\ntest`;
+      return `${code}\ntest`;
+    } catch (err: AxiosError | Error | unknown) {
+      console.log(err);
+
+      throw new APIError(err as string, 500);
+    }
   }
 
 }
