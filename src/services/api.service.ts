@@ -19,3 +19,5 @@ export class APIService {
   }
 
 }
+
+export const api = new APIService();
