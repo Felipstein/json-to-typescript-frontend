@@ -40,6 +40,8 @@ declare module 'styled-components' {
       };
     };
 
+    animationDelay: string;
+
     anatomy: {
 
       colors: {

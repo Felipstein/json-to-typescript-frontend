@@ -8,6 +8,7 @@ import GlobalStyles from '../../styles/GlobalStyles';
 import _dark from '../../styles/themes/dark';
 
 import * as S from './styles';
+import { LinkButton } from '../LinkButton';
 
 export const App: React.FC = () => {
 
@@ -29,9 +30,8 @@ export const App: React.FC = () => {
             <Text id='footer-by' size='sm'>
               by Felipe Oliveira
             </Text>
-            <Text>
-              https://github.com/Felipstein
-            </Text>
+
+            <LinkButton to='https://github.com/Felipstein' />
           </div>
 
           <div className="block-footer">

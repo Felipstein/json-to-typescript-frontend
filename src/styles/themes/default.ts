@@ -14,6 +14,8 @@ export default {
     },
   },
 
+  animationDelay: '0.12s',
+
   colors: {
     gray: {
       50: '#F4F4F4',
