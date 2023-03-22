@@ -6,6 +6,7 @@ import { Text } from '../Text';
 import { LinkButton } from '../LinkButton';
 import { IconButton } from '../IconButton';
 import { Button } from '../Button';
+import { CodeBlock } from '../CodeBlock';
 
 import { GitHubIcon } from '../../icons/GitHubIcon';
 import { FigmaIcon } from '../../icons/FigmaIcon';
@@ -33,6 +34,22 @@ export const App: React.FC = () => {
             <PlayIcon />
             RUN
           </Button>
+
+          <div className="codes-block">
+            <CodeBlock>
+              daodkwaod
+              daodkwaod
+              daodkwaod
+              daodkwaod
+            </CodeBlock>
+
+            <CodeBlock>
+              daodkwaod
+              daodkwaod
+              daodkwaod
+              daodkwaod
+            </CodeBlock>
+          </div>
 
         </S.MainContainer>
 

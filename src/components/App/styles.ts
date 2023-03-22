@@ -25,6 +25,11 @@ export const MainContainer = styled.main`
   #btn-run {
     margin-top: 2.4rem;
   }
+
+  .codes-block {
+    display: flex;
+    gap: 0.8rem;
+  }
 `;
 
 export const Footer = styled.footer`
