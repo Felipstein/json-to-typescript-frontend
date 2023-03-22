@@ -23,12 +23,21 @@ export const MainContainer = styled.main`
   }
 
   #btn-run {
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
   }
 
   .codes-block {
+    margin-top: 0.8rem;
+
     display: flex;
     gap: 0.8rem;
+
+    width: 90vw;
+    max-width: 136rem;
+
+    & > * {
+      flex: 1;
+    }
   }
 `;
 
