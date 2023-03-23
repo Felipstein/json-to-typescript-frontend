@@ -1,3 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
-
-export type CopyButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export interface CopyButtonProps {
+  disabled: boolean;
+  copy: string;
+}

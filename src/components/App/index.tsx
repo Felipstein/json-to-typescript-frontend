@@ -66,7 +66,10 @@ export const App: React.FC = () => {
               RUN
             </Button>
 
-            <CopyButton />
+            <CopyButton
+              copy={codeTranspiled}
+              disabled={!codeTranspiled}
+            />
           </div>
 
           {errorFeedback && (
