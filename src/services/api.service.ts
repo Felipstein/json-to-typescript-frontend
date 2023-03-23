@@ -10,7 +10,7 @@ export class APIService {
 
   constructor() {
     this.api = axios.create({
-      baseURL: 'http://localhost:3333/v1',
+      baseURL: 'https://json-to-typescript-backend.onrender.com/v1',
     });
 
     this.cancelToken = axios.CancelToken.source();
