@@ -1,4 +1,5 @@
 import React from 'react';
+import { MoonLoader } from 'react-spinners';
 
 import * as S from './styles';
 import { ButtonProps } from './types';
@@ -13,7 +14,7 @@ export const Button: React.FC<ButtonProps> = ({ isLoading = false, children, ...
     >
       {isLoading && (
         <div className="loader-container">
-          <h1>Carregando...</h1>
+          <MoonLoader size={24} color={'black'} />
         </div>
       )}
       <div className="content">

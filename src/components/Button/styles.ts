@@ -28,6 +28,8 @@ export const ButtonStyled = styled.button<{ isLoading: boolean, isDisabled: bool
   .loader-container {
     position: absolute;
 
+    display: flex;
+
     top: 50%;
     left: 50%;
 
