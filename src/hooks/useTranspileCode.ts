@@ -27,6 +27,10 @@ export function useTranspileCode() {
     }
   }, []);
 
+  const cancelTranspilation = useCallback(() => {
+    api.cancelTranspilation();
+  }, []);
+
   const removeErrorFeedback = useCallback(() => {
     setErrorFeedback(null);
   }, []);
@@ -35,6 +39,7 @@ export function useTranspileCode() {
     isTranspiling,
     errorFeedback,
     transpileCode,
+    cancelTranspilation,
     removeErrorFeedback,
   };
 }

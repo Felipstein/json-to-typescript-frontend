@@ -26,6 +26,7 @@ export const App: React.FC = () => {
     isTranspiling,
     errorFeedback,
     transpileCode,
+    cancelTranspilation,
     removeErrorFeedback,
   } = useTranspileCode();
 
@@ -65,6 +66,15 @@ export const App: React.FC = () => {
             >
               <PlayIcon />
               RUN
+            </Button>
+
+            <Button
+              type='button'
+              onClick={cancelTranspilation}
+              disabled={!isTranspiling}
+              isDanger
+            >
+              Cancelar
             </Button>
 
             <CopyButton
