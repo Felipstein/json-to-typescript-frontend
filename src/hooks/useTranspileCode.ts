@@ -8,6 +8,7 @@ export function useTranspileCode() {
 
   const transpileCode = useCallback(async (code: string) => {
     try {
+      setErrorFeedback(null);
       setIsTranspiling(true);
 
       const transpiledCode = await api.transpileCode(code);

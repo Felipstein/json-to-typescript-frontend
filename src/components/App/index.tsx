@@ -31,6 +31,8 @@ export const App: React.FC = () => {
   const [codeTranspiled, setCodeTranspiled] = useState('');
 
   async function handleTranspileCode() {
+    setCodeTranspiled('');
+
     const transpiled = await transpileCode(code);
 
     setCodeTranspiled(transpiled ?? '');
@@ -51,6 +53,7 @@ export const App: React.FC = () => {
             id='btn-run'
             type='button'
             onClick={handleTranspileCode}
+            disabled={isTranspiling}
           >
             <PlayIcon />
             RUN
