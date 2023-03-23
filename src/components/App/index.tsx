@@ -21,6 +21,7 @@ import * as S from './styles';
 import { WarnIcon } from '../../icons/WarnIcon';
 import { CopyButton } from '../CopyButton';
 import { SelectTranspilation } from '../SelectTranspilation';
+import { TranspilationType } from '../../types/Transpilations';
 
 export const App: React.FC = () => {
   const {
@@ -33,6 +34,8 @@ export const App: React.FC = () => {
 
   const [code, setCode] = useState('');
   const [codeTranspiled, setCodeTranspiled] = useState('');
+
+  const [transpilationType, setTranspilationType] = useState<TranspilationType>('typescript_interface');
 
   async function handleTranspileCode() {
     setCodeTranspiled('');
@@ -55,12 +58,15 @@ export const App: React.FC = () => {
           <Logo />
 
           <Text id='sub-title'>
-            Transforme seu JSON em uma interface TypeScript com facilidade e rapidez!
+            Transforme seu JSON em uma interface, classe ou marcação com facilidade e rapidez!
           </Text>
 
           <div className="type-and-actions">
 
-            <SelectTranspilation />
+            <SelectTranspilation
+              value={transpilationType}
+              onChange={(event) => setTranspilationType(event.target.value as TranspilationType)}
+            />
 
             <div className="actions">
               <Button
