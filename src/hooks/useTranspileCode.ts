@@ -1,17 +1,18 @@
 import { useCallback, useState } from 'react';
 import { APIError } from '../errors/APIError';
 import { api } from '../services/api.service';
+import { TranspilationType } from '../types/Transpilations';
 
 export function useTranspileCode() {
   const [isTranspiling, setIsTranspiling] = useState(false);
   const [errorFeedback, setErrorFeedback] = useState<string | null>(null);
 
-  const transpileCode = useCallback(async (code: string) => {
+  const transpileCode = useCallback(async (code: string, transpilationType: TranspilationType) => {
     try {
       setErrorFeedback(null);
       setIsTranspiling(true);
 
-      const transpiledCode = await api.transpileCode(code);
+      const transpiledCode = await api.transpileCode(code, transpilationType);
 
       return transpiledCode;
     } catch (err: APIError | any) {

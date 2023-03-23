@@ -40,7 +40,7 @@ export const App: React.FC = () => {
   async function handleTranspileCode() {
     setCodeTranspiled('');
 
-    const transpiled = await transpileCode(code);
+    const transpiled = await transpileCode(code, transpilationType);
 
     setCodeTranspiled(transpiled ?? '');
   }
