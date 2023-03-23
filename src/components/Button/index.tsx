@@ -4,12 +4,13 @@ import { MoonLoader } from 'react-spinners';
 import * as S from './styles';
 import { ButtonProps } from './types';
 
-export const Button: React.FC<ButtonProps> = ({ isLoading = false, children, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ isLoading = false, isDanger = false, children, ...props }) => {
 
   return (
     <S.ButtonStyled
       isDisabled={props.disabled || isLoading}
       isLoading={isLoading}
+      isDanger={isDanger}
       {...props}
     >
       {isLoading && (

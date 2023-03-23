@@ -36,6 +36,8 @@ export default {
 
     red: {
       400: '#ee4d37',
+      500: '#cf3e2b',
+      600: '#ad3222',
     },
 
     green: {

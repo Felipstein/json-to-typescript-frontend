@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 
-export const ButtonStyled = styled.button<{ isLoading: boolean, isDisabled: boolean }>`
+interface ButtonStyledProps {
+  isLoading: boolean;
+  isDisabled: boolean;
+  isDanger: boolean;
+}
+
+export const ButtonStyled = styled.button<ButtonStyledProps>`
   position: relative;
 
   border: none;
@@ -36,25 +42,44 @@ export const ButtonStyled = styled.button<{ isLoading: boolean, isDisabled: bool
     transform: translate(-50%, -50%);
   }
 
-  ${({ theme, isDisabled }) => css`
+  ${({ theme, isDisabled, isDanger }) => css`
 
     transition: background-color ${theme.animationDelay} ease-in-out;
 
     font-family: ${theme.typography.fontFamily};
     font-size: ${theme.typography.sizes.md};
 
-    color: ${theme.anatomy.colors.button.default.text};
-    background-color: ${theme.anatomy.colors.button.default.background};
+    ${isDanger
+    ? css`
+        color: ${theme.anatomy.colors.button.default.text};
+        background-color: ${theme.colors.red[400]};
 
-    &:hover {
-      color: ${theme.anatomy.colors.button.hovered.text};
-      background-color: ${theme.anatomy.colors.button.hovered.background};
-    }
+        &:hover {
+          color: ${theme.anatomy.colors.button.hovered.text};
+          background-color: ${theme.colors.red[500]};
+        }
 
-    &:active {
-      color: ${theme.anatomy.colors.button.actived.text};
-      background-color: ${theme.anatomy.colors.button.actived.background};
-    }
+        &:active {
+          color: ${theme.anatomy.colors.button.actived.text};
+          background-color: ${theme.colors.red[600]};
+        }
+      `
+
+    : css`
+        color: ${theme.anatomy.colors.button.default.text};
+        background-color: ${theme.anatomy.colors.button.default.background};
+
+        &:hover {
+          color: ${theme.anatomy.colors.button.hovered.text};
+          background-color: ${theme.anatomy.colors.button.hovered.background};
+        }
+
+        &:active {
+          color: ${theme.anatomy.colors.button.actived.text};
+          background-color: ${theme.anatomy.colors.button.actived.background};
+        }
+      `
+};
 
     ${isDisabled && css`
       opacity: 0.3;
