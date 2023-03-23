@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosInstance, CancelTokenSource } from 'axios';
 import { APIError } from '../errors/APIError';
+import { TranspilationType } from '../types/Transpilations';
 
 export class APIService {
 
@@ -13,13 +14,15 @@ export class APIService {
     });
 
     this.cancelToken = axios.CancelToken.source();
+
+    this.timeoutTimer = 0;
   }
 
   private generateNewCancelToken() {
     this.cancelToken = axios.CancelToken.source();
   }
 
-  async transpileCode(code: string): Promise<string> {
+  async transpileCode(code: string, transpilationType: TranspilationType): Promise<string> {
 
     try {
       if(this.cancelToken.token.reason) {
@@ -32,7 +35,7 @@ export class APIService {
 
       const response = await this.api.post(
         '/transpile',
-        { json: code },
+        { json: code, transpilation_type: transpilationType },
         { cancelToken: this.cancelToken.token },
       );
 
