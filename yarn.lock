@@ -2099,6 +2099,11 @@ react-ace@^10.1.0:
     lodash.isequal "^4.5.0"
     prop-types "^15.7.2"
 
+react-copy-clipboard@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-copy-clipboard/-/react-copy-clipboard-2.0.1.tgz#cd1c93cde1bbddab946b6d969efa481cd15be937"
+  integrity sha512-O5MqyGkdVVZLRZogGAXs9GBn2BVqI9NoD8E/SNr+82YeVF7RTNyRT/QIaLmpOzNYEIkxtEREbjFK0/ZvcU+aiw==
+
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"

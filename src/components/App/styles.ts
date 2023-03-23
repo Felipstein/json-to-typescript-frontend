@@ -23,9 +23,15 @@ export const MainContainer = styled.main`
     margin-top: 3.2rem;
   }
 
-  #btn-run {
+  .actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
     margin-top: 1.6rem;
   }
+
 
   .codes-block {
     margin-top: 0.8rem;

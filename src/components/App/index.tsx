@@ -19,6 +19,7 @@ import _dark from '../../styles/themes/dark';
 
 import * as S from './styles';
 import { WarnIcon } from '../../icons/WarnIcon';
+import { CopyButton } from '../CopyButton';
 
 export const App: React.FC = () => {
   const {
@@ -55,15 +56,18 @@ export const App: React.FC = () => {
             Transforme seu JSON em uma interface TypeScript com facilidade e rapidez!
           </Text>
 
-          <Button
-            id='btn-run'
-            type='button'
-            onClick={handleTranspileCode}
-            disabled={isTranspiling || !code}
-          >
-            <PlayIcon />
-            RUN
-          </Button>
+          <div className="actions">
+            <Button
+              type='button'
+              onClick={handleTranspileCode}
+              disabled={isTranspiling || !code}
+            >
+              <PlayIcon />
+              RUN
+            </Button>
+
+            <CopyButton />
+          </div>
 
           {errorFeedback && (
             <S.ErrorFeedback>
