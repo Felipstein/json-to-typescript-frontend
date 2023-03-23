@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance, CancelTokenSource } from 'axios';
 import { APIError } from '../errors/APIError';
 import { TranspilationType } from '../types/Transpilations';
+import { getBaseURL } from './base-url.service';
 
 export class APIService {
 
@@ -10,7 +11,7 @@ export class APIService {
 
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://json-to-typescript-backend.onrender.com/v1',
+      baseURL: getBaseURL(),
     });
 
     this.cancelToken = axios.CancelToken.source();
