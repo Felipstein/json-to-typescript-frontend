@@ -27,9 +27,14 @@ export function useTranspileCode() {
     }
   }, []);
 
+  const removeErrorFeedback = useCallback(() => {
+    setErrorFeedback(null);
+  }, []);
+
   return {
     isTranspiling,
     errorFeedback,
     transpileCode,
+    removeErrorFeedback,
   };
 }

@@ -25,6 +25,7 @@ export const App: React.FC = () => {
     isTranspiling,
     errorFeedback,
     transpileCode,
+    removeErrorFeedback,
   } = useTranspileCode();
 
   const [code, setCode] = useState('');
@@ -36,6 +37,11 @@ export const App: React.FC = () => {
     const transpiled = await transpileCode(code);
 
     setCodeTranspiled(transpiled ?? '');
+  }
+
+  function handleCodeChange(code: string) {
+    setCode(code);
+    removeErrorFeedback();
   }
 
   return (
@@ -53,7 +59,7 @@ export const App: React.FC = () => {
             id='btn-run'
             type='button'
             onClick={handleTranspileCode}
-            disabled={isTranspiling || !!code}
+            disabled={isTranspiling || !code}
           >
             <PlayIcon />
             RUN
@@ -69,7 +75,7 @@ export const App: React.FC = () => {
           <div className="codes-block">
             <CodeBlock
               isEditable
-              onChange={setCode}
+              onChange={handleCodeChange}
             >
               {code}
             </CodeBlock>
