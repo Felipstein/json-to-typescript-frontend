@@ -15,9 +15,13 @@ export class APIService {
     try {
       const response = await this.api.post('/transpile', { json: code });
 
-      console.log(response);
+      const codeTranspiled = response.data?.result;
 
-      return `${code}\ntest`;
+      if(!codeTranspiled) {
+        throw new Error();
+      }
+
+      return codeTranspiled;
     } catch (err: AxiosError | Error | unknown) {
 
       if(err instanceof AxiosError) {
