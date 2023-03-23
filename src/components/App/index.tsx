@@ -60,7 +60,8 @@ export const App: React.FC = () => {
             <Button
               type='button'
               onClick={handleTranspileCode}
-              disabled={isTranspiling || !code}
+              disabled={!code}
+              isLoading={isTranspiling}
             >
               <PlayIcon />
               RUN

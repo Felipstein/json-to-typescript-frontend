@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button`
-
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+export const ButtonStyled = styled.button<{ isLoading: boolean, isDisabled: boolean }>`
+  position: relative;
 
   border: none;
   outline: none;
@@ -18,7 +15,26 @@ export const Button = styled.button`
   cursor: pointer;
   user-select: none;
 
-  ${({ theme }) => css`
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    ${({ isLoading }) => isLoading && css`
+      visibility: hidden;
+    `}
+  }
+
+  .loader-container {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  ${({ theme, isDisabled }) => css`
 
     transition: background-color ${theme.animationDelay} ease-in-out;
 
@@ -38,15 +54,13 @@ export const Button = styled.button`
       background-color: ${theme.anatomy.colors.button.actived.background};
     }
 
-    &:disabled {
-      background-color: ${theme.colors.gray[700]};
-      color: ${theme.colors.gray[500]};
-
-      opacity: 0.5;
+    ${isDisabled && css`
+      opacity: 0.3;
 
       pointer-events: none;
       cursor: default;
-    }
+    `};
+
 
   `};
 
