@@ -1,10 +1,11 @@
-import axios, { Axios, AxiosError, AxiosInstance, CancelTokenSource } from 'axios';
+import axios, { AxiosError, AxiosInstance, CancelTokenSource } from 'axios';
 import { APIError } from '../errors/APIError';
 
 export class APIService {
 
   private readonly api: AxiosInstance;
   private cancelToken: CancelTokenSource;
+  private timeoutTimer: number;
 
   constructor() {
     this.api = axios.create({
@@ -22,10 +23,12 @@ export class APIService {
 
     try {
       if(this.cancelToken.token.reason) {
-        this.cancelToken.cancel();
-
         this.generateNewCancelToken();
       }
+
+      this.timeoutTimer = setTimeout(() => {
+        this.cancelTranspilation('TIME_OUT');
+      }, 20000);
 
       const response = await this.api.post(
         '/transpile',
@@ -53,18 +56,20 @@ export class APIService {
         }
 
         if(axios.isCancel(err)) {
-          throw new APIError('Transpilação cancelada.', -1);
+          throw new APIError(this.cancelToken.token.reason?.message || 'Transpilação cancelada.', -1);
         }
 
         throw new APIError('Houve um problema interno no servidor, por favor, tente novamente mais tarde.', 500);
       }
 
       throw new APIError('Houve um problema interno no cliente, por favor, tente novamente.', -1);
+    } finally {
+      clearTimeout(this.timeoutTimer);
     }
   }
 
-  async cancelTranspilation() {
-    this.cancelToken.cancel('Transpilação cancelada.');
+  async cancelTranspilation(reason?: 'BY_USER' | 'TIME_OUT') {
+    this.cancelToken.cancel(reason === 'TIME_OUT' ? 'Tempo excedido, execute novamente.' : 'Transpilação cancelada.');
   }
 
 }
