@@ -23,15 +23,22 @@ export const MainContainer = styled.main`
     margin-top: 3.2rem;
   }
 
-  .actions {
+  .type-and-actions {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    gap: 0.8rem;
+    width: 100%;
 
-    margin-top: 1.6rem;
+    .actions {
+      display: flex;
+      align-items: center;
+
+      gap: 0.8rem;
+
+      margin-top: 1.6rem;
+    }
   }
-
 
   .codes-block {
     margin-top: 0.8rem;

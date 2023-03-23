@@ -1,4 +1,6 @@
-export type TranspilationType = 'typescript_interface' | 'javascript_class' | 'java_class' | 'java_interface' | 'java_abstract_class' | 'c#_class' | 'xml';
+export const transpilationsTypes = ['typescript_interface', 'javascript_class', 'java_class', 'java_interface', 'java_abstract_class', 'c#_class', 'xml'] as const;
+
+export type TranspilationType = typeof transpilationsTypes[number];
 
 export const transpilationLabel: Record<TranspilationType, string> = {
   typescript_interface: 'Interface TypeScript',
