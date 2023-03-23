@@ -28,7 +28,8 @@ export const MainContainer = styled.main`
     align-items: center;
     justify-content: space-between;
 
-    width: 100%;
+    width: 90vw;
+    max-width: 136rem;
 
     .actions {
       display: flex;
