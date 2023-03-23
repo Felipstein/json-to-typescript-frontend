@@ -30,7 +30,7 @@ export class APIService {
         }
 
         if(err.response) {
-          throw new APIError(err.response.data.message, err.response.status);
+          throw new APIError(err.response.data.errorFeedback, err.response.status);
         }
 
         throw new APIError('Houve um problema interno no servidor, por favor, tente novamente mais tarde.', 500);

@@ -53,7 +53,7 @@ export const App: React.FC = () => {
             id='btn-run'
             type='button'
             onClick={handleTranspileCode}
-            disabled={isTranspiling}
+            disabled={isTranspiling || !!code}
           >
             <PlayIcon />
             RUN
